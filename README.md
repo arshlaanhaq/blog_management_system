@@ -22,20 +22,20 @@ The **Blog Management System** is a full-stack web application that enables user
 - JWT Authentication
 
 ### Database:
-- MongoDB 
+- MongoDB (or MySQL/PostgreSQL as needed)
 
 ## Installation & Setup
 
 ### Prerequisites
 Ensure you have the following installed on your system:
 - Node.js (LTS version recommended)
-- MongoDB 
+- MongoDB (or MySQL/PostgreSQL)
 
 ### Steps to Run the Project
 
 #### 1. Clone the Repository
 ```bash
-git clone https://github.com/arshlaanhaq/blog-management-system.git
+git clone https://github.com/yourusername/blog-management-system.git
 cd blog-management-system
 ```
 
@@ -79,9 +79,29 @@ npm run dev
 | PUT    | `/api/blogs/:id`     | Update a Blog Post    |
 | DELETE | `/api/blogs/:id`     | Delete a Blog Post    |
 
+## Deployment
 
+### Backend Deployment on Render
+1. Create an account on [Render](https://render.com/).
+2. Create a new **Web Service**.
+3. Connect your GitHub repository.
+4. Set up the environment variables (`MONGO_URI`, `JWT_SECRET`, etc.).
+5. Deploy the backend service.
+
+### Frontend Deployment on Netlify
+1. Create an account on [Netlify](https://www.netlify.com/).
+2. Click on **New site from Git** and connect your repository.
+3. Set the build command to:
+   ```bash
+   npm run build
+   ```
+4. Set the publish directory to `dist` (for Vite projects).
+5. Deploy the frontend.
 
 ## Contribution
 Feel free to contribute by submitting pull requests or reporting issues.
 
+## Links
+- Frontend: https://blog-management-sys.netlify.app
+- Backend: 
 
