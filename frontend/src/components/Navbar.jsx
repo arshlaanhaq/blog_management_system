@@ -35,7 +35,7 @@ export default function Navbar({ Islogged = false }) {
                     {/* Inline Dark Mode Toggle Button */}
                     <button
                         onClick={toggleTheme}
-                        className="ml-4 cursor-pointer text-white px-3 py-1 rounded-md"
+                        className="ml-4 cursor-pointer text-white px-3 py-1 rounded-md transition-all duration-300"
                     >
                         {theme === "dark" ? "🌞" : "🌙"}
                     </button>
@@ -43,11 +43,11 @@ export default function Navbar({ Islogged = false }) {
 
                 {/* Mobile Menu Toggle */}
                 <button
-                    className="block md:hidden cursor-pointer"
+                    className="block md:hidden cursor-pointer transition-transform duration-300"
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                 >
                     <svg
-                        className="w-6 h-6"
+                        className="w-6 h-6 transition-transform duration-300"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -64,32 +64,32 @@ export default function Navbar({ Islogged = false }) {
             </div>
 
             {/* Mobile Menu */}
-            {isMenuOpen && (
-                <ul className="md:hidden  text-white space-y-4 px-4 py-6">
-                    {!Islogged ? (
-                        <li className="flex flex-col items-center gap-2">
-                            <Link to="/login" className="hover:underline">Login</Link>
-                            <Link to="/register" className="hover:underline">Register</Link>
-                        </li>
-                    ) : (
-                        <li className="flex flex-col gap-4 items-center">
-                            <Link to="/" className="hover:underline">Home</Link>
-                            <Link to="/dashboard" className="hover:underline">Dashboard</Link>
-                            <button onClick={handleLogout} className="cursor-pointer hover:underline">Logout</button>
-                        </li>
-                    )}
-
-                    {/* Dark Mode Toggle for Mobile */}
-                    <li className="flex justify-center">
-                        <button
-                            onClick={toggleTheme}
-                            className="cursor-pointer text-white px-3 py-1 rounded-md"
-                        >
-                            {theme === "dark" ? "🌞" : "🌙"}
-                        </button>
+            <div
+                className={` text-white md:hidden overflow-hidden transition-all duration-300 ease-in-out transform ${isMenuOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}
+            >
+                {!Islogged ? (
+                    <li className="flex flex-col items-center gap-2">
+                        <Link to="/login" className="hover:underline">Login</Link>
+                        <Link to="/register" className="hover:underline">Register</Link>
                     </li>
-                </ul>
-            )}
+                ) : (
+                    <li className="flex flex-col gap-4 items-center">
+                        <Link to="/" className="hover:underline">Home</Link>
+                        <Link to="/dashboard" className="hover:underline">Dashboard</Link>
+                        <button onClick={handleLogout} className="cursor-pointer hover:underline">Logout</button>
+                    </li>
+                )}
+
+                {/* Dark Mode Toggle for Mobile */}
+                <li className="flex justify-center">
+                    <button
+                        onClick={toggleTheme}
+                        className="cursor-pointer text-white px-3 py-1 rounded-md transition-all duration-300"
+                    >
+                        {theme === "dark" ? "🌞" : "🌙"}
+                    </button>
+                </li>
+            </div>
         </nav>
     );
 }
