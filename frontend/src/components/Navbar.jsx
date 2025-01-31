@@ -65,7 +65,7 @@ export default function Navbar({ Islogged = false }) {
 
             {/* Mobile Menu */}
             {isMenuOpen && (
-                <ul className="md:hidden bg-gray-600 text-white space-y-4 px-4 py-6">
+                <ul className="md:hidden  text-white space-y-4 px-4 py-6">
                     {!Islogged ? (
                         <li className="flex flex-col items-center gap-2">
                             <Link to="/login" className="hover:underline">Login</Link>
